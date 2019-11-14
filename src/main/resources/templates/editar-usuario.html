@@ -1,0 +1,11 @@
+<form action="#" th:action="@{/editarUsuario/{id}(id=${usuario.id})}" th:object="${usuario}" method="POST" >
+    <label for="nome">Nome</label>
+    <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+    <input type="submit" value="Editar Usuário">
+</form>

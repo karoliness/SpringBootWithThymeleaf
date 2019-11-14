@@ -1,0 +1,25 @@
+<div th:switch="${usuarios}">
+    <h2 th:case="null">Ainda não há usuários!</h2>
+    <div th:case="*">
+        <h2>Usuários</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.nome}"></td>
+                    <td th:text="${usuario.email}"></td>
+                    <td><a th:href="@{/editar/{id} (id=${usuario.id})}">Editar</a></td>
+                    <td><a th:href="@{/excluir/{id} (id=${usuario.id})}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/inscricao">Adicionar um novo usuário</a></p>
+</div>
